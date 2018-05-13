@@ -91,7 +91,7 @@ class Main
     discourse_topic = DiscourseAdapter.new.create_topic(
       title: event.discourse_topic_title,
       raw: event.discourse_topic_body,
-      category: 'test category'
+      category: 'Events'
     )
 
     event.discourse_topic_id = discourse_topic['topic_id']
