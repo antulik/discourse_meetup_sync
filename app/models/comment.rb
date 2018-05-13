@@ -89,7 +89,14 @@ class Comment < ApplicationRecord
 
     if discourse_reply_to_post_number
       reply_to_comment = Comment.find_by(discourse_post_number: discourse_reply_to_post_number)
-      params[:in_reply_to] = reply_to_comment.meetup_comment_id
+      params[:in_reply_to] =
+        if reply_to_comment.meetup_in_reply_to.nil?
+          # 1 level reply
+          reply_to_comment.meetup_comment_id
+        else
+          # meetup only allows one level replies
+          reply_to_comment.meetup_in_reply_to
+        end
       # todo: strip quoted text
     end
 
