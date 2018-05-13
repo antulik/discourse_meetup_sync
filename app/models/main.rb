@@ -7,7 +7,6 @@ class Main
       {urlname: 'Ruby-On-Rails-Oceania-Melbourne'},
       {urlname: 'roro-perth'},
       {urlname: 'Ruby-On-Rails-Oceania-Sydney'},
-      {urlname: 'adelaiderb'},
     ]
 
     meetups.each do |info|
